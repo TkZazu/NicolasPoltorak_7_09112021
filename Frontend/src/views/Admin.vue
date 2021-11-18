@@ -5,7 +5,7 @@
         <main class="col-12">   
              <!-- section incluant le titre --> 
             <section class="col-12">
-                <h1 class="my-2 btn btn-block btn-danger font-weight-bold" style="cursor:default">Administration du site</h1>
+                <h1 class="my-2 btn btn-block colored font-weight-bold" style="cursor:default">Administration du site</h1>
                  <Home></Home>
             </section>
             <section id="filPrincipal" class="row">
@@ -15,12 +15,12 @@
                         <div class="card-header">
                             <div class="row justify-content-around">
                                 <div class="m-1"> Bonjour {{ nameCurrentUser }} ! </div>
-                                <button @click="localClear"> <img src="../assets/signout.svg" alt="sign-out" style="width:35px"/> </button>
+                                <button @click="localClear" style="border-color: red"> <img src="../assets/signout.svg" alt="sign-out" style="width:35px"/> </button>
                             </div>
                         </div>
                         <div class="card-body text-center">
                             <div class="dropdown text-center">
-                                <p>Membre depuis le {{ creation }}</p>
+                                <p>Membre depuis le : {{ creation }}</p>
                             </div>
                             <div>
                                 <div v-if="isAdmin">
@@ -38,8 +38,8 @@
                 <article class="col col-md-8 mt-5">
                     <h2 class="text-white text-center m-5 ">FAITES VOTRE CHOIX</h2>
                     <div class="row justify-content-around">
-                        <button @click="toCommentsList()" class="btn btn-warning rounded shadow font-weight-bold p-5 m-2">MESSAGES/COMMENTS</button>
-                        <button @click="toUsersList()" class="btn btn-warning rounded shadow font-weight-bold p-5 m-2" >USERS</button>
+                        <button @click="toCommentsList()" class="btn colored rounded shadow font-weight-bold p-5 m-2">MESSAGES/COMMENTS</button>
+                        <button @click="toUsersList()" class="btn colored rounded shadow font-weight-bold p-5 m-2" >USERS</button>
                     </div>
                 </article>
             </section>

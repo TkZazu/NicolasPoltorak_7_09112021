@@ -4,7 +4,7 @@
             <div class="col-10">
                  <!-- div contenant le titre -->
                 <div class="col-12">
-                    <h1 class="my-2 btn btn-block btn-info font-weight-bold" style="cursor:default">Vous consultez vote compte</h1>
+                    <h1 class="my-2 btn btn-block colored font-weight-bold" style="cursor:default">Vous consultez vote compte</h1>
                     <Home></Home>
                 </div>
                 <section id="filPrincipal" class="row">
@@ -14,16 +14,16 @@
                             <div class="card-header">
                                 <div class="row justify-content-around">
                                     <p class="m-1"> Bonjour {{ nameCurrentUser }} ! </p>
-                                    <button @click="localClear"> <img src="../assets/signout.svg" alt="sign-out" style="width:35px"/> </button>
+                                    <button @click="localClear" style="border-color: red"> <img src="../assets/signout.svg" alt="sign-out" style="width:35px"/> </button>
                                 </div>
                             </div>
                             <div class="card-body text-center">
                                 <div class="dropdown text-center">
-                                    <p>Membre depuis le {{ creation }}</p>
+                                    <p>Membre depuis le : {{ creation }}</p>
                                 </div>
                             </div>
                             <div class="card-body mx-auto">
-                                <div class="btn-info rounded p-3" style="cursor:default"><button class="rounded p-2" style="cursor:default"><span class="m-3 font-weight-bold">Depuis cette page vous pouvez supprimer votre compte. La suppression de votre compte entrainera également la suppression de tous les commentaires et les images que vous avez posté.</span></button></div>
+                                <div class="colored rounded p-3" style="cursor:default"><button class="rounded p-2" style="cursor:default"><span class="m-3 font-weight-bold">Depuis cette page vous pouvez supprimer votre compte. La suppression de votre compte entrainera également la suppression de tous les commentaires et les images que vous avez posté.</span></button></div>
                             </div>
                             <div class="card-body mx-auto">
                                 <div class="btn-danger rounded p-3" style="cursor:default"><button @click="deleteMyAccount(id)" class="rounded p-2"><span class="m-3 font-weight-bold">SUPPRIMER VOTRE COMPTE</span><img src="../assets/trash.svg" alt="trash" style="width:25px"></button></div>
@@ -76,7 +76,7 @@ export default {
         },
         deleteMyAccount(n) {
             let id = n;
-            let confirmUserDeletion = confirm("voulez-vous vraiment supprimer votre compte ?");
+            let confirmUserDeletion = confirm("Voulez-vous vraiment supprimer votre compte ?");
             if (confirmUserDeletion == true) {
                 axios.delete("http://localhost:3000/api/users/" + id, {headers: { "Authorization": "Bearer " + localStorage.getItem("token") },})
                 .then((res)=> {

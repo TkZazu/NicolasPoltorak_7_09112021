@@ -5,7 +5,7 @@
             <form enctype="multipart/form-data">
                 <div class="header">
                     <h1  class="btn btn-dark" style="cursor:default">
-                        {{ callName() }} vous commentez la publication numéro <span class="badge font-weight-bold badge-light"> {{ callNumber() }}</span>
+                        {{ callName() }}, vous commentez la publication numéro <span class="badge font-weight-bold badge-light"> {{ callNumber() }}</span>
                     </h1>
                 </div>
                 <div class="row">

@@ -13,12 +13,12 @@
                         <div class="card-header">
                             <div class="row justify-content-around">
                                 <p class="m-1"> Bonjour {{ nameCurrentUser }} ! </p>
-                                <button @click="localClear"> <img src="../assets/signout.svg" alt="sign-out" style="width:35px"/> </button>
+                                <button @click="localClear" style="border-color: red"> <img src="../assets/signout.svg" alt="sign-out" style="width:35px"/> </button>
                             </div>
                         </div>
                         <div class="card-body text-center">
                             <div class="dropdown text-center">
-                                <p>Membre depuis le {{ creation }}</p>
+                                <p>Membre depuis le : {{ creation }}</p>
                             </div>
                             <div>
                                 <router-link v-if="isAdmin" to='/Admin'><button v-if="isAdmin" type="button"  class=" btn btn-danger mx-auto rounded p-2">VOUS ÊTES L'ADMINISTRATEUR DU SITE</button></router-link> 
@@ -35,14 +35,14 @@
                     <h2 class="text-white text-center m-5 ">
                         LISTE DE TOUS LES UTILISATEURS
                     </h2>
-                    <div class="badge btn-primary p-3 badgeList">
+                    <div class="badge p-3 badgeList">
                         <span class="spanBadge">NOM</span>  
                         <span class="spanBadge">EMAIL</span>
                         <span class="spanBadge">DEPUIS LE</span> 
                         <span class="spanBadge">SUPPRIMER</span> 
                     </div>
                     <div v-for="i in users" :key="i">   
-                        <div class="badge btn-primary p-3 badgeList">
+                        <div class="badge btn-primary1 p-3 badgeList">
                             <span class="spanBadge"> {{ i.userName.charAt(0).toUpperCase() + i.userName.slice(1) }} </span> 
                             <span class="spanBadge"> {{ i.email }} </span> 
                             <span class="spanBadge"> {{ i.createdAt.slice(0,10).split("-").reverse().join(".")}} </span>  
@@ -101,7 +101,7 @@ export default {
         deleteOneUser(uid, isAdmin) {
         console.log(uid, isAdmin)
         
-        let confirmUserDeletion = confirm("voulez-vous vraiment supprimer cet utilisateur ?");
+        let confirmUserDeletion = confirm("Voulez-vous vraiment supprimer cet utilisateur ?");
             if (confirmUserDeletion == true) {
                 axios.delete("http://localhost:3000/api/users/", {
                     headers: { 

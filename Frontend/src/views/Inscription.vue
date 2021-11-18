@@ -18,7 +18,7 @@
                 <div class="form-group">
                     <label for="inputPassword">Choisissez un Mot de passe:</label>
                     <input v-on:keydown="invalid = false" v-model="inputPassword" type="password" class="form-control" id="inputPassword" aria-describedby="passwordHelp" placeholder="mot de passe">
-                    <small id="passwordHelp" class="form-text text-muted">de 8 a 15 caracteres dont au moins 1 lettre et 1 chiffre</small>
+                    <small id="passwordHelp" class="form-text text-muted">De 8 a 15 caracteres dont au moins 1 lettre et 1 chiffre</small>
                 </div>
                 <button type="submit" class="contrastBoutonNoir text-white p-2 w-100 border-0 rounded shadow font-weight-bold">S'INSCRIRE</button>                          
             </form>
@@ -64,7 +64,7 @@ export default {
                     password    : this.inputPassword
                 })
                 .then(() => {
-                    alert('inscription réussie, redirection vers le module de connexion');
+                    alert('Inscription réussie, redirection vers le module de connexion');
                     router.push({ path : '/'});
                 })
                 .catch((error)=>{

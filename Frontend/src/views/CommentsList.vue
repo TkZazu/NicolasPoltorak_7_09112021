@@ -13,12 +13,12 @@
                         <div class="card-header">
                             <div class="row justify-content-around">
                                 <p class="m-1"> Bonjour {{ nameCurrentUser }} ! </p>
-                                <button @click="localClear"> <img src="../assets/signout.svg" alt="sign-out" style="width:35px"/> </button>
+                                <button @click="localClear" style="border-color: red"> <img src="../assets/signout.svg" alt="sign-out" style="width:35px"/> </button>
                             </div>
                         </div>
                         <div class="card-body text-center">
                             <div class="dropdown text-center">
-                                <p>Membre depuis le {{ creation }}</p>
+                                <p>Membre depuis le : {{ creation }}</p>
                             </div>
                             <div>
                                 <router-link v-if="isAdmin" to='/Admin'><button  type="button" class=" btn btn-danger mx-auto rounded p-2 buttonsPanel">ADMIN. <button class=" rounded p-1 m-1 "><img src="../assets/trash.svg" alt="trash" style="width:25px"> ACTIVÉE</button></button></router-link> 
@@ -34,7 +34,7 @@
                     <h2 class="text-white text-center m-5 ">
                         Liens vers tous les messages et leurs commentaires.
                     </h2>
-                    <div class="badge btn-primary p-3 badgeList">
+                    <div class="badge p-3 badgeList">
                             <span class="spanBadge">DATE</span>  
                             <span class="spanBadge">AUTEUR</span>
                             <span class="spanBadge">MESSAGE</span> 
@@ -42,7 +42,7 @@
                             <span class="spanBadge">VOIR</span> 
                     </div>
                     <div v-for="i in messages" :key="i">   
-                        <div class="badge btn-primary p-3 badgeList">
+                        <div class="badge btn-primary1 p-3 badgeList">
                             <span class="spanBadge"> Le {{ i.createdAt.slice(0,10).split("-").reverse().join(".")}} </span>  
                             <span class="spanBadge"> {{ i.userName.charAt(0).toUpperCase() + i.userName.slice(1) }} </span> 
                             <span class="spanBadge"> {{ i.message.slice(0,10) }}...</span> 
@@ -85,7 +85,7 @@ export default {
                 self.messages = res.data.list;
                 console.log(res.data.list)
             } else {
-                console.log("aucun message")
+                console.log("Aucun message")
             }
         })
         .catch((error)=>{

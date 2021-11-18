@@ -4,7 +4,7 @@
     <main class="container">  
          <!-- titre -->
         <div class="row mb-4 rounded">
-            <p class="col-12 my-2 btn  btn-block btn-info badgeTopColor font-weight-bold" style="background-color: #138400" >Vous consultez les commentaires</p>  
+            <p class="col-12 my-2 btn  btn-block colored badgeTopColor font-weight-bold" >Vous consultez les commentaires</p>  
             <Home></Home>
         </div>
         <div class="row">
@@ -14,12 +14,12 @@
                     <div class="card-header">
                         <div class="row justify-content-around">
                             <p class="text-center p-2"> Bonjour  {{ nameCurrentUser }} ! </p>
-                            <button @click="localClear"> <img src="../assets/signout.svg" alt="sign-out" style="width:35px"/> </button>
+                            <button @click="localClear" style="border-color: red"> <img src="../assets/signout.svg" alt="sign-out" style="width:35px"/> </button>
                         </div>
                     </div>
                     <div class="card-body">
                         <div class="dropdown text-center">
-                            <p>Membre depuis le {{ creationUser }} </p>
+                            <p>Membre depuis le : {{ creationUser }} </p>
                         </div>
                         <div id="compteButton" class="text-center">
                             <router-link v-if="isAdmin" to='/Admin'><button type="button" class=" btn btn-danger mx-auto rounded p-2 buttonsPanel">ADMIN. <button class=" rounded p-1 m-1 "><img src="../assets/trash.svg" alt="trash" style="width:25px"> ACTIVÉE</button></button></router-link> 
@@ -38,11 +38,11 @@
             <section class="card col-12 col-md-8 bg-light mb-3">
                 <div class="card-header bg-light d-flex align-items-center justify-content-between m-0 p-1">
                     <span class=" text-dark text-bold  p-1" > 
-                        Posté par {{ messageUserName }}
-                        le {{ creation }}
+                        Posté par : {{ messageUserName }}
+                        ,le : {{ creation }}
                     </span>
                     <div class="badge bg-dark text-wrap text-white p-2" style="width: 6rem;">
-                        <!-- ref # {{ messageId}} --> <button> Like : {{ messageLike }} </button>
+                        ref # {{ messageId}}
                     </div>                                                                                       
                 </div>
                 <div>
@@ -61,13 +61,13 @@
             </section> 
         </div>
          <!-- section commentaire(s) -->
-        <section class="row">
+        <section class="row center mx-auto d-block">
             <router-link to='/CreateComment'><p  v-if="comments.length == 0" class='mt-3 btn btn-sm btn-block btn-danger font-weight-bold'> Aucun commentaire pour l'instant, soyez le premier à en créer un !</p></router-link>
             <div v-for="comment in comments" :key="comment" class="card col-12 mt-3">
-                <div class="card-header ">
-                    <p class="btn btn-dark w-100" style="cursor:default">Commentaire rédigé le {{ comment.createdAt.slice(0,10).split('-').reverse().join('/') }}  par {{ comment.User.userName.charAt(0).toUpperCase() + comment.User.userName.slice(1) }}</p>
+                <div class="card-header d-block ">
+                    <p class="btn btn-dark w-100" style="cursor:default">Commentaire rédigé le : {{ comment.createdAt.slice(0,10).split('-').reverse().join('/') }}  par {{ comment.User.userName.charAt(0).toUpperCase() + comment.User.userName.slice(1) }}</p>
                 </div>
-                <div class="card-body border bg-dark text-white text-right rounded mx-2">
+                <div class="card-body card-margin border bg-dark text-white text-right rounded mx-2">
                     <p>  {{ comment.comment }} </p>
                 </div>
                 <div class="card-footer row justify-content-between">
@@ -149,7 +149,7 @@ export default {
             router.push({ path : "/" });
         },
         deleteMessage(messageId, messageUserId, currentUserId) {
-            let confirmMessageDeletion = confirm("voulez-vous vraiment supprimer cette image ?, tous les commentaires associés seront également supprimés.");
+            let confirmMessageDeletion = confirm("Voulez-vous vraiment supprimer cette image ?, tous les commentaires associés seront également supprimés.");
             if (confirmMessageDeletion == true) {
                 axios.delete("http://localhost:3000/api/messages/", {
                     headers: { 
@@ -164,7 +164,7 @@ export default {
                 .then((res)=> console.log(res))
                 .catch((error) => { 
                     console.log("ligne 133 " + error)})
-                    alert("Au click sur ok, le message (et ses commentaires) supprimé, retour à l'accueil.")
+                    alert("Au click sur ok, le message (et ses commentaires) sera supprimé, retour à l'accueil.")
                     router.push({ path : "/Stream" });
             } else {
                 return

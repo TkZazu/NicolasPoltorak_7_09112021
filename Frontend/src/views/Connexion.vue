@@ -8,12 +8,10 @@
                 <div class="form-group mt-3">
                     <label for="inputEmail">Email:</label>
                     <input v-on:keydown="isInvalid = false" v-model="inputEmail" type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="votre email">    
-                    <span id="emailHelp" class="form-text font-italic">Contactez-nous en cas d'oubli</span>
                 </div>
                 <div class="form-group mt-3">
                     <label for="inputPassword">Mot de passe:</label>
                     <input v-on:keydown="isInvalid = false" v-model="inputPassword" type="password" class="form-control" id="inputPassword" aria-describedby="passwordHelp" placeholder="votre mot de passe">                        
-                    <span id="passwordHelp" class="form-text font-italic">Contactez-nous en cas d'oubli</span>
                 </div>
                 <button type="submit" class="btn btn-primary mt-5 w-100 shadow contrastBoutonNoir font-weight-bold">SE CONNECTER</button>
             </form>
@@ -57,7 +55,7 @@ export default {
                 localStorage.setItem("userId",  res.data.userId)
                 localStorage.setItem("userName",res.data.userName)
                 localStorage.setItem("role",    res.data.role)
-                window.alert('connexion réussie, redirection vers la page principale');
+                window.alert('Connexion réussie, redirection vers la page principale');
                 router.push({ path : 'Stream'});
             })
             .catch((error) => {

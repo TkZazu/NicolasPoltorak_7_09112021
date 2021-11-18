@@ -17,7 +17,7 @@
                         </div>
                         <div class="card-body">
                             <div class="text-center">
-                                <p id="membre">Membre depuis le {{ creation }}</p>
+                                <p id="membre">Membre depuis le : {{ creation }}</p>
                             </div>
                             <div id="compteButton" class="text-center">
                                 <router-link v-if="isAdmin" to='/Admin'><button type="button" class=" btn btn-danger mx-auto rounded p-2 buttonsPanel">ADMIN. <button class=" rounded p-1 m-1 "><img src="../assets/trash.svg" alt="trash" style="width:25px"> ACTIVÉE</button></button></router-link> 
@@ -34,8 +34,8 @@
                     <div v-for="message in messages" :key="message.id" class="card bg-light overflow my-3">
                         <div class="card-header bg-light d-flex align-items-center justify-content-between m-0 p-1">
                             <span class=" text-dark text-bold  p-1" >
-                                Posté par {{ message.userName.charAt(0).toUpperCase() + message.userName.slice(1) }}
-                                le {{ message.createdAt.slice(0,10).split('-').reverse().join('.') + ' à ' + message.createdAt.slice(11,16) }}
+                                Posté par : {{ message.userName.charAt(0).toUpperCase() + message.userName.slice(1) }}
+                                ,le : {{ message.createdAt.slice(0,10).split('-').reverse().join('.') + ' à ' + message.createdAt.slice(11,16) }}
                             </span>
                             <div class="badge bg-dark text-wrap text-white p-2" style="width: 6rem;">
                                 ref # {{ message.id }}                    
@@ -88,7 +88,7 @@ export default {
                 localStorage.setItem("MessageId", rep[0].id);
                 console.log(this.messages)
             } else {
-                console.log("aucun message")
+                console.log("Aucun message")
             }
         })
         .catch((error)=>{
@@ -118,7 +118,7 @@ export default {
                 typeof b,
                 typeof c
             )
-            let confirmMessageDeletion = confirm("voulez-vous vraiment supprimer cette image ?, tous les commentaires associés seront également supprimés.");
+            let confirmMessageDeletion = confirm("Voulez-vous vraiment supprimer cette image ?, tous les commentaires associés seront également supprimés.");
             if (confirmMessageDeletion == true) {
                 axios.delete("http://localhost:3000/api/messages/", {
                     headers: { 

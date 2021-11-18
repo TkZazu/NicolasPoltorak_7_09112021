@@ -33,6 +33,12 @@
   color: #000000;
 }
 
+.btn-primary1:hover {
+  background-color: red;
+  border-color: #000000;
+  color: white;
+}
+
 .colored {
   background: #ffd7d7;
 }
@@ -57,7 +63,7 @@
   margin: 1rem;
   border-radius: 10px;
   border: 3px solid #000000;
-  background-color: #0b22a5;
+  background-color: #ffd7d7;
   font-size: 1rem;
 }
 
@@ -70,6 +76,16 @@
 .mx-auto {
   margin-bottom: 25px;
 }
+
+.card-header {
+  border-bottom: none;
+  background-color: white;
+}
+
+.card-margin {
+  margin-bottom: 15px;
+}
+
 @media only screen and (max-width: 768px) {
   #membre {
     display: none;
