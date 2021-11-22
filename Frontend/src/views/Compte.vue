@@ -13,7 +13,7 @@
                         <div class="card bg-light my-3 class=center-block" style="float:none;">
                             <div class="card-header">
                                 <div class="row justify-content-around">
-                                    <p class="m-1"> Bonjour {{ nameCurrentUser }} ! </p>
+                                    <p class="m-1">  Bonjour {{ nameCurrentUser }} ! </p>
                                     <button @click="localClear" style="border-color: red"> <img src="../assets/signout.svg" alt="sign-out" style="width:35px"/> </button>
                                 </div>
                             </div>
@@ -53,7 +53,7 @@ export default {
             isAdmin: false,
             nameCurrentUser: "",
             creation: "",
-            id: ""
+            id: "",
         }
     },
     created: function() {        
@@ -64,7 +64,8 @@ export default {
             self.creation           = res.data.createdAt.slice(0,10).split("-").reverse().join(".");
             self.isAdmin            = res.data.isAdmin;
             self.nameCurrentUser    = res.data.userName.charAt(0).toUpperCase() + res.data.userName.slice(1);
-            self.id                 = res.data.id     
+            self.id                 = res.data.id;
+            self.picture            =res.data.picture  ; 
         })
         .catch((error)=> { console.log(error) 
         });    
