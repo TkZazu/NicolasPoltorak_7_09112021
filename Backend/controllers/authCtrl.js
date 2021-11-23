@@ -2,7 +2,7 @@ const db = require("../models");
 const User = db.users;
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-
+const maxAge = 3 * 24 * 60 * 60 * 1000;
 // SIGNUP / Inscription.
 
 exports.signup = (req, res, next) => {
@@ -72,7 +72,7 @@ exports.login = (req, res, next) => {
             role: user.isAdmin,
             userName: user.userName,
             token: jwt.sign({ userId: user.id }, process.env.TKN_SECRET, {
-              expiresIn: "24h",
+              expiresIn: maxAge,
             }),
           });
         })
