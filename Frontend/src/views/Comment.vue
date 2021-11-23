@@ -13,7 +13,7 @@
                 <div class="card mb-3">
                     <div class="card-header">
                         <div class="row justify-content-around">
-                            <p class="text-center p-2"> Bonjour  {{ nameCurrentUser }} ! </p>
+                            <p class="text-center p-2"> <img src="../assets/icon.png" alt="iconMember" style="height: 35px; width: 35px"/> Bonjour  {{ nameCurrentUser }} ! </p>
                             <button @click="localClear" style="border-color: red"> <img src="../assets/signout.svg" alt="sign-out" style="width:35px"/> </button>
                         </div>
                     </div>
