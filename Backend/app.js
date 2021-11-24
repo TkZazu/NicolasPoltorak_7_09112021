@@ -12,7 +12,6 @@ const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
 const messageRoutes = require("./routes/message");
 const commentRoutes = require("./routes/comment");
-const likeRoutes = require("./routes/like");
 
 app.use(helmet());
 app.use(cors());
@@ -28,6 +27,5 @@ app.use("/api/auth", authRoutes);
 app.use("/api/users", auth, userRoutes);
 app.use("/api/messages", auth, messageRoutes);
 app.use("/api/comments", auth, commentRoutes);
-app.use("/api/likes", auth, likeRoutes);
 
 module.exports = app;

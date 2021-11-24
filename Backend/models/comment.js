@@ -8,9 +8,6 @@ module.exports = (sequelize, DataTypes) => {
       comment: {
         type: DataTypes.TEXT,
       },
-      like: {
-        type: DataTypes.STRING,
-      },
     },
     {
       sequelize,

@@ -11,9 +11,6 @@ module.exports = (sequelize, DataTypes) => {
       messageUrl: {
         type: DataTypes.STRING,
       },
-      like: {
-        type: DataTypes.STRING,
-      },
     },
     {
       sequelize,

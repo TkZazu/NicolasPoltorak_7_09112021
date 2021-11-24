@@ -45,22 +45,14 @@ db.Sequelize = Sequelize;
 db.users = require("./user.js")(sequelize, Sequelize);
 db.messages = require("./message.js")(sequelize, Sequelize);
 db.comments = require("./comment.js")(sequelize, Sequelize);
-db.likes = require("./like.js")(sequelize, Sequelize);
 
 db.messages.belongsTo(db.users);
-db.messages.hasMany(db.likes);
 
 db.comments.belongsTo(db.users);
 db.comments.belongsTo(db.messages);
 db.comments.hasOne(db.comments);
-db.comments.hasMany(db.likes);
 
 db.users.hasMany(db.messages);
 db.users.hasMany(db.comments);
-db.users.hasMany(db.likes);
-
-db.likes.belongsTo(db.users);
-db.likes.belongsTo(db.comments);
-db.likes.belongsTo(db.messages);
 
 module.exports = db;
