@@ -44,14 +44,13 @@ npm i
 ```
 
 Changez les valeurs du ".env" pour qu'il corresponde avec vos paramètres en changeant le DB_PASS par le votre.
-
 Enfin, lancez le serveur :
 
 ```bash
 node server
 ```
 
-Le Backend se lancera à l'issus de ces commandes.
+Le Backend se lancera à l'issus de ces commandes. Si erreur, faites la partie Base de données et réessayer de lancer le serveur
 
 ### Base de données :
 
